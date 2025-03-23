@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ metadata.title }}</title>
+    <meta name="description" content="{{ metadata.description }}">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        [class^="icon-"] { display: inline-block; width: 1rem; height: 1rem; }
+    </style>
+</head>
+<body class="bg-background text-foreground">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div class="container flex h-16 items-center justify-between py-4">
+            <div class="flex items-center gap-2">
+                <i class="icon-shield h-6 w-6 text-primary" data-lucide="shield"></i>
+                <span class="text-xl font-bold">Bedwarsify</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#" class="text-sm font-medium hover:underline underline-offset-4">Strategies</a>
+                <a href="#" class="text-sm font-medium hover:underline underline-offset-4">Video Guides</a>
+                <a href="#" class="text-sm font-medium hover:underline underline-offset-4">Interactive Maps</a>
+                <a href="#" class="text-sm font-medium hover:underline underline-offset-4">Community</a>
+                <a href="#" class="text-sm font-medium hover:underline underline-offset-4">About</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button class="hidden md:flex px-4 py-2 border border-input rounded-md text-sm">Sign In</button>
+                <button class="px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm">Join Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t py-6 md:py-0">
+        <div class="container flex flex-col md:flex-row justify-between items-center gap-4 md:h-24">
+            <div class="flex items-center gap-2">
+                <i class="icon-shield h-5 w-5 text-primary" data-lucide="shield"></i>
+                <span class="text-lg font-semibold">Bedwarsify</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+                <a href="#" class="hover:underline underline-offset-4">Terms</a>
+                <a href="#" class="hover:underline underline-offset-4">Privacy</a>
+                <a href="#" class="hover:underline underline-offset-4">Contact</a>
+                <a href="#" class="hover:underline underline-offset-4">About</a>
+            </div>
+            <p class="text-xs text-muted-foreground">© {{ current_year }} Bedwarsify. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
