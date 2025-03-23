@@ -107,8 +107,18 @@ body {
 .hero-section {
     width: 100%;
     padding: 3rem 0;
-    background: url('../images/hero-bg.jpg') no-repeat center/cover;
+    background: url('../images/bed-bg.png') no-repeat center/cover;
     position: relative;
+    height: 55vh;
+}
+
+.badge {
+    margin-top: -40px;
+}
+
+h1, h2 {
+    margin-top: 0px;
+    margin-bottom: -20px;
 }
 
 @media (min-width: 768px) {
