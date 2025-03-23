@@ -1,65 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
-    <!-- Hero Section -->
-    <section class="w-full py-12 md:py-24 lg:py-32 bg-[url('{{ url_for('static', filename='images/bed-bg.png') }}')] bg-cover bg-center relative">
-        <div class="absolute inset-0 bg-black/60"></div>
-        <div class="container relative z-10 flex flex-col items-center justify-center space-y-4 text-center text-white">
-            <span class="px-3 py-1 text-sm bg-primary text-primary-foreground rounded">Minecraft Bedwars</span>
-            <h1 class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                Master the Art of <span class="text-primary">Bedwars</span>
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="badge">Minecraft Bedwars</span>
+            <h1>
+                Master the Art of <span class="highlight">Bedwars</span>
             </h1>
-            <p class="max-w-[700px] text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p>
                 Discover pro strategies, watch video tutorials, and explore interactive maps to dominate the battlefield.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 mt-8">
-                <button class="px-6 py-3 bg-primary text-primary-foreground rounded-md flex items-center gap-2">
-                    <i class="icon-book-open h-4 w-4" data-lucide="book-open"></i> Explore Strategies
+            <div class="hero-buttons">
+                <button class="btn-primary">
+                    <i class="icon-book-open" data-lucide="book-open"></i> Explore Strategies
                 </button>
-                <button class="px-6 py-3 border border-white/20 bg-background/20 hover:bg-background/30 text-white rounded-md flex items-center gap-2">
-                    <i class="icon-play h-4 w-4" data-lucide="play"></i> Watch Tutorials
+                <button class="btn-outline">
+                    <i class="icon-play" data-lucide="play"></i> Watch Tutorials
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Strategies Section -->
-    <section class="w-full py-12 md:py-24 lg:py-32">
-        <div class="container space-y-12">
-            <div class="flex flex-col items-center justify-center space-y-4 text-center">
-                <span class="px-3 py-1 text-sm bg-primary text-primary-foreground rounded">Featured Content</span>
-                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Winning Strategies</h2>
-                <p class="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+    <section class="strategies-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Featured Content</span>
+                <h2>Winning Strategies</h2>
+                <p>
                     Learn from the best players and improve your gameplay with our curated strategies.
                 </p>
             </div>
 
-            <div class="tabs w-full">
-                <div class="flex justify-center mb-8">
-                    <div class="flex gap-2">
-                        <button data-tab="beginner" class="tab-trigger px-4 py-2 bg-muted rounded-md active:bg-primary active:text-primary-foreground">Beginner</button>
-                        <button data-tab="intermediate" class="tab-trigger px-4 py-2 bg-muted rounded-md active:bg-primary active:text-primary-foreground">Intermediate</button>
-                        <button data-tab="advanced" class="tab-trigger px-4 py-2 bg-muted rounded-md active:bg-primary active:text-primary-foreground">Advanced</button>
-                    </div>
+            <div class="tabs">
+                <div class="tabs-list">
+                    <button data-tab="beginner" class="tab-trigger active">Beginner</button>
+                    <button data-tab="intermediate" class="tab-trigger">Intermediate</button>
+                    <button data-tab="advanced" class="tab-trigger">Advanced</button>
                 </div>
 
                 {% for level, items in strategies.items() %}
-                    <div class="tab-content {{ 'block' if level == 'beginner' else 'hidden' }}" id="{{ level }}">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="tab-content {{ 'active' if level == 'beginner' else '' }}" id="{{ level }}">
+                        <div class="strategy-grid">
                             {% for strategy in items %}
-                                <div class="border rounded-md overflow-hidden">
-                                    <div class="relative h-48">
-                                        <img src="{{ url_for('static', filename='images/' + strategy.image) }}" alt="{{ strategy.title }}" class="object-cover w-full h-full">
-                                        <span class="absolute top-2 right-2 px-2 py-1 bg-background/80 text-sm rounded">{{ strategy.difficulty }}</span>
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ url_for('static', filename='images/' + strategy.image) }}" alt="{{ strategy.title }}">
+                                        <span class="badge">{{ strategy.difficulty }}</span>
                                     </div>
-                                    <div class="p-4">
-                                        <h3 class="flex items-center gap-2 text-lg font-semibold">
-                                            <i class="icon-{{ strategy.icon }} h-4 w-4" data-lucide="{{ strategy.icon }}"></i> {{ strategy.title }}
+                                    <div class="card-header">
+                                        <h3>
+                                            <i class="icon-{{ strategy.icon }}" data-lucide="{{ strategy.icon }}"></i> {{ strategy.title }}
                                         </h3>
-                                        <p class="text-muted-foreground">{{ strategy.description }}</p>
+                                        <p>{{ strategy.description }}</p>
                                     </div>
-                                    <div class="p-4">
-                                        <button class="w-full px-4 py-2 border border-input rounded-md flex items-center justify-center gap-2">
-                                            Read Guide <i class="icon-arrow-right h-4 w-4" data-lucide="arrow-right"></i>
+                                    <div class="card-footer">
+                                        <button class="btn-outline">
+                                            Read Guide <i class="icon-arrow-right" data-lucide="arrow-right"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -71,37 +68,36 @@
         </div>
     </section>
 
-    <!-- Video Guides Section -->
-    <section class="w-full py-12 md:py-24 lg:py-32 bg-muted">
-        <div class="container space-y-12">
-            <div class="flex flex-col items-center justify-center space-y-4 text-center">
-                <span class="px-3 py-1 text-sm bg-primary text-primary-foreground rounded">Video Content</span>
-                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Video Guides & Tutorials</h2>
-                <p class="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+    <section class="videos-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Video Content</span>
+                <h2>Video Guides & Tutorials</h2>
+                <p>
                     Watch and learn from our collection of video tutorials created by Bedwars experts.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="video-grid">
                 {% for video in videos %}
-                    <div class="border rounded-md overflow-hidden">
-                        <div class="relative h-48 group">
-                            <img src="{{ url_for('static', filename='images/' + video.image) }}" alt="{{ video.title }}" class="object-cover w-full h-full">
-                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <button class="h-12 w-12 rounded-full bg-background/20 hover:bg-background/30 text-white flex items-center justify-center">
-                                    <i class="icon-play h-6 w-6" data-lucide="play"></i>
+                    <div class="card">
+                        <div class="card-image group">
+                            <img src="{{ url_for('static', filename='images/' + video.image) }}" alt="{{ video.title }}">
+                            <div class="video-overlay">
+                                <button class="btn-icon">
+                                    <i class="icon-play" data-lucide="play"></i>
                                 </button>
                             </div>
-                            <span class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">{{ video.duration }}</span>
+                            <span class="video-duration">{{ video.duration }}</span>
                         </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold">{{ video.title }}</h3>
-                            <p class="flex items-center gap-2 text-muted-foreground">
-                                <i class="icon-video h-3 w-3" data-lucide="video"></i> {{ video.views }} views
+                        <div class="card-header">
+                            <h3>{{ video.title }}</h3>
+                            <p>
+                                <i class="icon-video" data-lucide="video"></i> {{ video.views }} views
                             </p>
                         </div>
-                        <div class="p-4">
-                            <button class="w-full px-4 py-2 border border-input rounded-md flex items-center justify-center gap-2">
-                                Watch Now <i class="icon-play h-4 w-4" data-lucide="play"></i>
+                        <div class="card-footer">
+                            <button class="btn-outline">
+                                Watch Now <i class="icon-play" data-lucide="play"></i>
                             </button>
                         </div>
                     </div>
@@ -110,52 +106,48 @@
         </div>
     </section>
 
-    <!-- Interactive Map Section -->
-    <section class="w-full py-12 md:py-24 lg:py-32">
+    <section class="map-section">
         <div class="container">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div class="space-y-6">
-                    <span class="px-3 py-1 text-sm bg-primary text-primary-foreground rounded">Interactive</span>
-                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Interactive Map Explorer</h2>
-                    <p class="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <div class="map-content">
+                <div class="map-text">
+                    <span class="badge">Interactive</span>
+                    <h2>Interactive Map Explorer</h2>
+                    <p>
                         Explore different Bedwars maps with our interactive tool. Learn optimal paths, resource locations, and strategic positions.
                     </p>
-                    <ul class="space-y-2">
+                    <ul>
                         {% for feature in ["Explore all official Bedwars maps", "Learn optimal bridging paths", "Discover resource generation points", "Find strategic defensive positions", "Study pro player movement patterns"] %}
-                            <li class="flex items-center gap-2">
-                                <div class="h-2 w-2 rounded-full bg-primary"></div> {{ feature }}
+                            <li>
+                                <div class="bullet"></div> {{ feature }}
                             </li>
                         {% endfor %}
                     </ul>
-                    <button class="px-6 py-3 bg-primary text-primary-foreground rounded-md flex items-center gap-2">
-                        <i class="icon-map-pin h-4 w-4" data-lucide="map-pin"></i> Open Map Explorer
+                    <button class="btn-primary">
+                        <i class="icon-map-pin" data-lucide="map-pin"></i> Open Map Explorer
                     </button>
                 </div>
-                <div class="relative h-[400px] rounded-lg overflow-hidden border">
-                    <img src="{{ url_for('static', filename='images/placeholder.svg') }}" alt="Interactive Map Explorer" class="object-cover w-full h-full">
-                    <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <span class="mb-2 px-2 py-1 bg-primary text-primary-foreground rounded text-sm">New Feature</span>
-                        <h3 class="text-xl font-bold mb-1">Lighthouse Map</h3>
-                        <p class="text-sm text-muted-foreground">Explore the latest map with interactive hotspots and strategy guides.</p>
+                <div class="map-image">
+                    <img src="{{ url_for('static', filename='images/placeholder.svg') }}" alt="Interactive Map Explorer">
+                    <div class="map-overlay"></div>
+                    <div class="map-info">
+                        <span class="badge">New Feature</span>
+                        <h3>Lighthouse Map</h3>
+                        <p>Explore the latest map with interactive hotspots and strategy guides.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Community Section -->
-    <section class="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
-        <div class="container space-y-8 text-center">
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Join Our Bedwars Community</h2>
-            <p class="mx-auto max-w-[700px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+    <section class="community-section">
+        <div class="container">
+            <h2>Join Our Bedwars Community</h2>
+            <p>
                 Connect with other players, share strategies, and participate in community events and tournaments.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="px-6 py-3 bg-secondary text-secondary-foreground rounded-md">Join Discord</button>
-                <button class="px-6 py-3 border border-primary-foreground/20 bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground rounded-md">
-                    Community Forums
-                </button>
+            <div class="community-buttons">
+                <button class="btn-secondary">Join Discord</button>
+                <button class="btn-outline">Community Forums</button>
             </div>
         </div>
     </section>
