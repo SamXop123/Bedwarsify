@@ -4,11 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     triggers.forEach(trigger => {
         trigger.addEventListener('click', () => {
-            triggers.forEach(t => t.classList.remove('active:bg-primary', 'active:text-primary-foreground'));
-            contents.forEach(c => c.classList.add('hidden'));
+            triggers.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
 
-            trigger.classList.add('active:bg-primary', 'active:text-primary-foreground');
-            document.getElementById(trigger.dataset.tab).classList.remove('hidden');
+            trigger.classList.add('active');
+            const targetContent = document.getElementById(trigger.dataset.tab);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
         });
     });
 });
