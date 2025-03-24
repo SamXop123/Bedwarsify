@@ -20,7 +20,7 @@ body {
     z-index: 40;
     border-bottom: 1px solid #e5e7eb;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1px);
 }
 
 .header-content {
@@ -80,6 +80,14 @@ body {
     color: #333333;
     font-size: 0.875rem;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-outline:hover {
+    transition: 0.3s ease-in-out;
+    border: 1px solid black;
+    cursor: pointer;
+    transform: scale(1.03);
 }
 
 .btn-primary {
