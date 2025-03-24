@@ -22,9 +22,9 @@ strategies = {
 }
 
 videos = [
-    {"title": "Ultimate Bed Defense Tutorial", "duration": "15:24", "views": "245K", "image": "placeholder.svg"},
-    {"title": "Pro Bridging Techniques", "duration": "12:08", "views": "189K", "image": "placeholder.svg"},
-    {"title": "How to Win 1v4 Situations", "duration": "18:32", "views": "320K", "image": "placeholder.svg"},
+    {"title": "Ultimate Bed Defense Tutorial", "duration": "15:24", "views": "245K", "image": "sddefault.jpg", "url": "https://youtu.be/aEHtUboGcgg?si=JcZsBaaWf4hkFzc2"},
+    {"title": "Pro Bridging Techniques", "duration": "12:08", "views": "189K", "image": "hq720.jpg", "url": "https://youtu.be/P9j7MCkZjsg?si=kw1oTwSTskhtP3KO"},
+    {"title": "How to Win 1v4 Situations", "duration": "18:32", "views": "320K", "image": "maxresdefault.jpg", "url": "https://youtu.be/VirKwKNyv30?si=jEeF9RMQAm08BFGx"},
 ]
 
 @app.route('/')
