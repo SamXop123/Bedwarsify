@@ -6,11 +6,11 @@ app = Flask(__name__)
 strategies = {
     "beginner": [
         {"title": "Bed Defense Basics", "description": "Learn how to protect your bed...", "image": "bed-def.jpg", "difficulty": "Beginner", "icon": "shield"},
-        {"title": "Resource Management", "description": "Master the art of collecting...", "image": "bed-gen.png", "difficulty": "Beginner", "icon": "target"},
+        {"title": "Resource Management", "description": "Master the art of collecting...", "image": "emerald.jpg", "difficulty": "Beginner", "icon": "target"},
         {"title": "Rush Tactics", "description": "Learn how to quickly eliminate...", "image": "bed-rush.jpg", "difficulty": "Beginner", "icon": "sword"},
     ],
     "intermediate": [
-        {"title": "Island Control", "description": "Techniques to dominate...", "image": "bed-island.jpg", "difficulty": "Intermediate", "icon": "map-pin"},
+        {"title": "Island Control", "description": "Techniques to dominate...", "image": "islands.jpg", "difficulty": "Intermediate", "icon": "map-pin"},
         {"title": "Team Coordination", "description": "Learn effective communication...", "image": "bed-team.jpg", "difficulty": "Intermediate", "icon": "target"},
         {"title": "Mid-Game Transitions", "description": "How to adapt your strategy...", "image": "bed-transition.jpg", "difficulty": "Intermediate", "icon": "sword"},
     ],
