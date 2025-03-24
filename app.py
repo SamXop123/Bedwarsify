@@ -15,9 +15,9 @@ strategies = {
         {"title": "Mid-Game Transitions", "description": "How to adapt your strategy...", "image": "bed-transition.jpg", "difficulty": "Intermediate", "icon": "sword"},
     ],
     "advanced": [
-        {"title": "Advanced Bridging", "description": "Master speed bridging...", "image": "placeholder.svg", "difficulty": "Advanced", "icon": "map-pin"},
-        {"title": "Counter Strategies", "description": "How to counter common tactics...", "image": "placeholder.svg", "difficulty": "Advanced", "icon": "shield"},
-        {"title": "Solo Carry Techniques", "description": "Advanced strategies for carrying...", "image": "placeholder.svg", "difficulty": "Advanced", "icon": "sword"},
+        {"title": "Advanced Bridging", "description": "Master speed bridging...", "image": "tellybridge.jpg", "difficulty": "Advanced", "icon": "map-pin"},
+        {"title": "Counter Strategies", "description": "How to counter common tactics...", "image": "counter.jpg", "difficulty": "Advanced", "icon": "shield"},
+        {"title": "Solo Carry Techniques", "description": "Advanced strategies for carrying...", "image": "hq720_2.jpg", "difficulty": "Advanced", "icon": "sword"},
     ]
 }
 
