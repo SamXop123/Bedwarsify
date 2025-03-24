@@ -83,8 +83,8 @@
                         <div class="card-image group">
                             <img src="{{ url_for('static', filename='images/' + video.image) }}" alt="{{ video.title }}">
                             <div class="video-overlay">
-                                <button class="btn-icon">
-                                    <i class="icon-play" data-lucide="play"></i>
+                                <button class="btn-icon" onclick="window.open('{{ video.url }}', '_blank')">
+                                    <i class="icon-play" data-lucide="play"><img src="/static/images/play-button.svg" style="filter: invert(1); width: 25px; clip-path: inset(5px 5px 5px 5px);"></i>
                                 </button>
                             </div>
                             <span class="video-duration">{{ video.duration }}</span>
@@ -96,7 +96,7 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <button class="btn-outline">
+                            <button class="btn-outline" onclick="window.open('{{ video.url }}', '_blank')">
                                 Watch Now <i class="icon-play" data-lucide="play"></i>
                             </button>
                         </div>
