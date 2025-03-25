@@ -27,21 +27,41 @@
                 <a href="#comm-sec" class="nav-link">Community</a>
                 <a href="#" class="nav-link">About</a>
             </nav>
+
             <div class="auth-buttons">
                 <button id="theme-switch">
                     <img class="mode-change" src="/static/images/sun.png" width="30px" alt="sun">
                     <img class="mode-change" src="/static/images/moon.png" width="30px" alt="moon">
                 </button>
-                <button class="btn-outline">Sign In</button>
-                <button class="btn-primary">Join Now</button>
+                {% if session.username %}
+                    <span class="welcome-text">Welcome, {{ session.username }}!</span>
+                    <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn-outline">Sign In</a>
+                    <a href="{{ url_for('signup') }}" class="btn-primary">Join Now</a>
+                {% endif %}
             </div>
+
         </div>
     </header>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
 
     <main class="main">
         {% block content %}{% endblock %}
     </main>
 
+    
     <footer class="footer">
         <div class="container footer-content">
             <div class="logo">
@@ -57,7 +77,15 @@
             <p class="footer-text">© {{ current_year }} Bedwarsify. All rights reserved.</p>
         </div>
     </footer>
+
     <script>
+        // Remove flash messages after animation completes
+        document.querySelectorAll('.flash-message').forEach(message => {
+            message.addEventListener('animationend', () => {
+                message.remove();
+            });
+        });
+
         lucide.createIcons();
     </script>
 </body>
