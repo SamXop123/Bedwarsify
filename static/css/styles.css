@@ -915,6 +915,10 @@ h1, h2 {
     text-decoration: none;
 }
 
+.signin, .joinnow {
+    text-decoration: none;
+}
+
 /* Flash Messages Container */
 .flash-container {
     position: fixed;
