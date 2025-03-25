@@ -25,7 +25,7 @@
                 <a href="#strategy-videos" class="nav-link">Video Guides</a>
                 <a href="#interacmap" class="nav-link">Interactive Maps</a>
                 <a href="#comm-sec" class="nav-link">Community</a>
-                <a href="#" class="nav-link">About</a>
+                <a href="{{ url_for('home') }}" class="nav-link">About</a>
             </nav>
 
             <div class="auth-buttons">
@@ -37,8 +37,8 @@
                     <span class="welcome-text">Welcome, {{ session.username }}!</span>
                     <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
                 {% else %}
-                    <a href="{{ url_for('login') }}" class="btn-outline">Sign In</a>
-                    <a href="{{ url_for('signup') }}" class="btn-primary">Join Now</a>
+                    <a href="{{ url_for('login') }}" class="btn-outline signin">Sign In</a>
+                    <a href="{{ url_for('signup') }}" class="btn-primary joinnow">Join Now</a>
                 {% endif %}
             </div>
 
