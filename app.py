@@ -1,7 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from datetime import datetime
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "b1f3cb867a6477c36f7d0dfbbce70816"
+users_db = {
+    "testuser": {"email": "testuser@example.com", "password": "password123"}
+}
 
 strategies = {
     "beginner": [
@@ -27,13 +31,56 @@ videos = [
     {"title": "How to Win 1v4 Situations", "duration": "18:32", "views": "320K", "image": "maxresdefault.jpg", "url": "https://youtu.be/VirKwKNyv30?si=jEeF9RMQAm08BFGx"},
 ]
 
+# Define metadata to be reused across routes
+default_metadata = {
+    "title": "Bedwarsify - Minecraft Bedwars Strategy Guide",
+    "description": "Discover pro strategies, watch video tutorials, and explore interactive maps to dominate in Minecraft Bedwars."
+}
+
 @app.route('/')
 def home():
-    metadata = {
-        "title": "Bedwarsify - Minecraft Bedwars Strategy Guide",
-        "description": "Discover pro strategies, watch video tutorials, and explore interactive maps to dominate in Minecraft Bedwars."
-    }
-    return render_template('index.html', strategies=strategies, videos=videos, metadata=metadata, current_year=datetime.now().year)
+    return render_template('index.html', strategies=strategies, videos=videos, metadata=default_metadata, current_year=datetime.now().year)
+
+@app.route('/login.html', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        user = users_db.get(username)
+
+        if user and user['password'] == password:  # Plain text password comparison (not secure)
+            session['username'] = username  # Store the username in session
+            flash("Logged in successfully!", "success")
+            return redirect(url_for('home'))  # Redirect to the home page
+        else:
+            flash("Invalid username or password", "danger")
+            return render_template('login.html', error="Invalid username or password", metadata=default_metadata)
+
+    return render_template('login.html', metadata=default_metadata)
+
+@app.route('/signup.html', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        if username in users_db:
+            flash("Username already exists", "danger")
+            return render_template('signup.html', error="Username already exists", metadata=default_metadata)
+
+        users_db[username] = {'email': email, 'password': password}  # Store plain text password (not secure)
+        flash("Account created successfully! Please log in.", "success")
+        return redirect(url_for('login'))
+
+    return render_template('signup.html', metadata=default_metadata)
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)  # Remove the username from session
+    flash("You have been logged out.", "info")
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
