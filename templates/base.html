@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/darkmode.js') }}" defer></script>
+
     <link rel="website icon" href="/static/images/bedwarsify-logo3.png">
 </head>
 <body>
@@ -26,6 +28,10 @@
                 <a href="#" class="nav-link">About</a>
             </nav>
             <div class="auth-buttons">
+                <button id="theme-switch">
+                    <img class="mode-change" src="/static/images/sun.png" width="30px" alt="sun">
+                    <img class="mode-change" src="/static/images/moon.png" width="30px" alt="moon">
+                </button>
                 <button class="btn-outline">Sign In</button>
                 <button class="btn-primary">Join Now</button>
             </div>
