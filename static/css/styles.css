@@ -1,4 +1,28 @@
 
+
+#theme-switch {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    position: relative;
+    bottom: 10px;
+}
+
+#theme-switch img {
+    fill: var(--primary-color);
+}
+#theme-switch img:last-child {
+    display: none;
+}
+.darkmode #theme-switch img:first-child {
+    display: none;
+}
+.darkmode #theme-switch img:last-child {
+    display: block;
+}
+
 html {
     scroll-behavior: smooth;
 }
