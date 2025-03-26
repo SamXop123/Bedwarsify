@@ -31,7 +31,6 @@ videos = [
     {"title": "How to Win 1v4 Situations", "duration": "18:32", "views": "320K", "image": "maxresdefault.jpg", "url": "https://youtu.be/VirKwKNyv30?si=jEeF9RMQAm08BFGx"},
 ]
 
-# Define metadata to be reused across routes
 default_metadata = {
     "title": "Bedwarsify - Minecraft Bedwars Strategy Guide",
     "description": "Discover pro strategies, watch video tutorials, and explore interactive maps to dominate in Minecraft Bedwars."
@@ -83,5 +82,18 @@ def logout():
     return redirect(url_for('home'))
 
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+
+        flash("Message sent successfully! We'll get back to you soon.", "success")
+        return redirect(url_for('home'))
+
+    return render_template('contact.html', metadata=default_metadata)
+
 if __name__ == '__main__':
     app.run(debug=True)
+
