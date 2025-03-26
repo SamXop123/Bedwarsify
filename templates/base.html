@@ -19,13 +19,14 @@
             <div class="logo">
                 <i class="icon-shield" data-lucide="shield"></i>
                 <span>Bedwarsify</span>
-            </div>
+            </div> 
             <nav class="nav">
-                <a href="#learn-strategy" class="nav-link">Strategies</a>
-                <a href="#strategy-videos" class="nav-link">Video Guides</a>
-                <a href="#interacmap" class="nav-link">Interactive Maps</a>
-                <a href="#comm-sec" class="nav-link">Community</a>
-                <a href="{{ url_for('home') }}" class="nav-link">About</a>
+                <a href="{{ url_for('home') }}#learn-strategy" class="nav-link">Strategies</a>
+                <a href="{{ url_for('home') }}#strategy-videos" class="nav-link">Video Guides</a>
+                <a href="{{ url_for('home') }}#interacmap" class="nav-link">Interactive Maps</a>
+                <a href="{{ url_for('home') }}#comm-sec" class="nav-link">Community</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
             </nav>
 
             <div class="auth-buttons">
@@ -72,7 +73,7 @@
                 <a href="#" class="footer-link">Terms</a>
                 <a href="#" class="footer-link">Privacy</a>
                 <a href="{{ url_for('contact') }}" class="footer-link">Contact</a>
-                <a href="#" class="footer-link">About</a>
+                <a href="{{ url_for('about') }}" class="footer-link">About</a>
             </div>
             <p class="footer-text">© {{ current_year }} Bedwarsify. All rights reserved.</p>
         </div>
