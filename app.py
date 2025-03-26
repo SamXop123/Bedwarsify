@@ -2,16 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from datetime import datetime
 
 app = Flask(__name__)
-# Set the secret key for session management and flash messages
-app.secret_key = "b1f3cb867a6477c36f7d0dfbbce70816"  # Ensure this is a unique and secret value
+app.secret_key = "b1f3cb867a6477c36f7d0dfbbce70816" 
 
-# In-memory user database (dictionary)
 users_db = {
     "testuser": {"email": "testuser@example.com", "password": "password123"}
 }
 
-# In-memory contact messages (dictionary)
-contact_messages = []
 
 strategies = {
     "beginner": [
@@ -37,13 +33,11 @@ videos = [
     {"title": "How to Win 1v4 Situations", "duration": "25:28", "views": "55K", "image": "maxresdefault.jpg", "url": "https://youtu.be/VirKwKNyv30?si=jEeF9RMQAm08BFGx"},
 ]
 
-# Define metadata to be reused across routes
 default_metadata = {
     "title": "Bedwarsify - Minecraft Bedwars Strategy Guide",
     "description": "Discover pro strategies, watch video tutorials, and explore interactive maps to dominate in Minecraft Bedwars."
 }
 
-# Helper function to find a strategy by ID
 def find_strategy(strategy_id):
     for level, items in strategies.items():
         for strategy in items:
@@ -51,9 +45,11 @@ def find_strategy(strategy_id):
                 return strategy, level
     return None, None
 
+
 @app.route('/')
 def home():
     return render_template('index.html', strategies=strategies, videos=videos, metadata=default_metadata, current_year=datetime.now().year)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -63,10 +59,10 @@ def login():
 
         user = users_db.get(username)
 
-        if user and user['password'] == password:  # Plain text password comparison (not secure)
-            session['username'] = username  # Store the username in session
+        if user and user['password'] == password:  
+            session['username'] = username  
             flash("Logged in successfully!", "success")
-            return redirect(url_for('home'))  # Redirect to the home page
+            return redirect(url_for('home')) 
         else:
             flash("Invalid username or password", "danger")
             return render_template('login.html', error="Invalid username or password", metadata=default_metadata)
@@ -84,7 +80,7 @@ def signup():
             flash("Username already exists", "danger")
             return render_template('signup.html', error="Username already exists", metadata=default_metadata)
 
-        users_db[username] = {'email': email, 'password': password}  # Store plain text password (not secure)
+        users_db[username] = {'email': email, 'password': password}  
         flash("Account created successfully! Please log in.", "success")
         return redirect(url_for('login'))
 
@@ -93,7 +89,7 @@ def signup():
 
 @app.route('/logout')
 def logout():
-    session.pop('username', None)  # Remove the username from session
+    session.pop('username', None)  
     flash("You have been logged out.", "info")
     return redirect(url_for('home'))
 
@@ -119,6 +115,7 @@ def about():
     }
     return render_template('about.html', metadata=about_metadata)
 
+
 @app.route('/guide/<strategy_id>')
 def guide(strategy_id):
     strategy, level = find_strategy(strategy_id)
@@ -131,7 +128,6 @@ def guide(strategy_id):
         "description": f"Learn how to master {strategy['title']} in Minecraft Bedwars with this detailed guide."
     }
 
-    # Placeholder content for the guide (you can expand this as needed)
     guide_content = {
         "bed-defense-basics": {
             "title": "Bed Defense Basics",
@@ -348,6 +344,7 @@ def guide(strategy_id):
     })
 
     return render_template('guide.html', strategy=strategy, level=level, guide_data=guide_data, strategies=strategies, metadata=guide_metadata)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
