@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
@@ -22,49 +23,52 @@
         </div>
     </section>
 
-    <!-- Strategies Section -->
-<section class="strategies-section" id="learn-strategy">
-    <div class="container">
-        <div class="section-header">
-            <span class="badge">Learn & Improve</span>
-            <h2>Bedwars Strategies</h2>
-            <p>Explore strategies for all skill levels to dominate in Minecraft Bedwars.</p>
-        </div>
-        <div class="tabs">
-            <div class="tabs-list">
-                <button class="tab-trigger active" data-tab="beginner">Beginner</button>
-                <button class="tab-trigger" data-tab="intermediate">Intermediate</button>
-                <button class="tab-trigger" data-tab="advanced">Advanced</button>
-            </div>
-            {% for level, items in strategies.items() %}
-            <div class="tab-content {% if level == 'beginner' %}active{% endif %}" id="{{ level }}">
-                <div class="strategy-grid">
-                    {% for strategy in items %}
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{{ url_for('static', filename='images/' + strategy.image) }}" alt="{{ strategy.title }}">
-                            <span class="badge">{{ strategy.difficulty }}</span>
-                        </div>
-                        <div class="card-header">
-                            <h3>
-                                <i data-lucide="{{ strategy.icon }}"></i> {{ strategy.title }}
-                            </h3>
-                            <p>{{ strategy.description }}</p>
-                        </div>
-                        <div class="card-footer strategy-card-footer">
-                            <a href="{{ url_for('guide', strategy_id=strategy.id) }}" class="btn-outline read-guide-btn">
-                                <i data-lucide="play"></i> Read Guide
-                            </a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
 
+    <!-- Strategies Section -->
+    <section class="strategies-section" id="learn-strategy">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Learn & Improve</span>
+                <h2>Bedwars Strategies</h2>
+                <p>Explore strategies for all skill levels to dominate in Minecraft Bedwars.</p>
+            </div>
+            <div class="tabs">
+                <div class="tabs-list">
+                    <button class="tab-trigger active" data-tab="beginner">Beginner</button>
+                    <button class="tab-trigger" data-tab="intermediate">Intermediate</button>
+                    <button class="tab-trigger" data-tab="advanced">Advanced</button>
+                </div>
+                {% for level, items in strategies.items() %}
+                <div class="tab-content {% if level == 'beginner' %}active{% endif %}" id="{{ level }}">
+                    <div class="strategy-grid">
+                        {% for strategy in items %}
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ url_for('static', filename='images/' + strategy.image) }}" alt="{{ strategy.title }}">
+                                <span class="badge">{{ strategy.difficulty }}</span>
+                            </div>
+                            <div class="card-header">
+                                <h3>
+                                    <i data-lucide="{{ strategy.icon }}"></i> {{ strategy.title }}
+                                </h3>
+                                <p>{{ strategy.description }}</p>
+                            </div>
+                            <div class="card-footer strategy-card-footer">
+                                <a href="{{ url_for('guide', strategy_id=strategy.id) }}" class="btn-outline read-guide-btn">
+                                    <i data-lucide="play"></i> Read Guide
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Video Section -->
     <section class="videos-section" id="strategy-videos">
         <div class="container">
             <div class="section-header">
@@ -103,6 +107,8 @@
         </div>
     </section>
 
+    <!-- Map Section -->
+
     <section class="map-section" id="interacmap">
         <div class="container">
             <div class="map-content">
@@ -136,6 +142,8 @@
         </div>
     </section>
 
+
+    <!-- Community Section -->
     <section class="community-section" id="comm-sec">
         <div class="container">
             <h2>Join Our Bedwars Community</h2>
@@ -148,4 +156,5 @@
             </div>
         </div>
     </section>
+    
 {% endblock %}
