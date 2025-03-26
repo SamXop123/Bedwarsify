@@ -36,9 +36,11 @@ default_metadata = {
     "description": "Discover pro strategies, watch video tutorials, and explore interactive maps to dominate in Minecraft Bedwars."
 }
 
+
 @app.route('/')
 def home():
     return render_template('index.html', strategies=strategies, videos=videos, metadata=default_metadata, current_year=datetime.now().year)
+
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
@@ -58,6 +60,7 @@ def login():
 
     return render_template('login.html', metadata=default_metadata)
 
+
 @app.route('/signup.html', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -74,6 +77,7 @@ def signup():
         return redirect(url_for('login'))
 
     return render_template('signup.html', metadata=default_metadata)
+
 
 @app.route('/logout')
 def logout():
@@ -93,6 +97,14 @@ def contact():
         return redirect(url_for('home'))
 
     return render_template('contact.html', metadata=default_metadata)
+
+@app.route('/about')
+def about():
+    about_metadata = {
+        "title": "About Bedwarsify - Learn More About Us",
+        "description": "Discover the story behind Bedwarsify, our mission to empower Minecraft Bedwars players, and meet the team behind the site."
+    }
+    return render_template('about.html', metadata=about_metadata)
 
 if __name__ == '__main__':
     app.run(debug=True)
