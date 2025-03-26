@@ -8,7 +8,6 @@
 
 <img src="./static/images/bedwarsify-logo3.png" width= "100px">
 
-
 #### Website: [Visit Bedwarsify](https://bedwarsify.vercel.app)
 
 </div>
@@ -136,7 +135,6 @@ bedwarsify/
 - **HTML/CSS/JavaScript**: Frontend technologies for creating a responsive and interactive UI.
 - **Jinja2**: Templating engine for rendering dynamic HTML content.
 - **Lucide Icons**: Icon library for adding beautiful icons to the site.
-- **Bootstrap (Optional)**: If you’ve included Bootstrap for styling (not explicitly used in the current code).
 - **Python**: Core programming language for the backend logic.
 
 ---
