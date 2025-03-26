@@ -1121,3 +1121,12 @@ h1, h2 {
     font-size: 0.875rem;
     color: var(--text-color);
 }
+
+.abt-comm-btn {
+    text-decoration: none;
+}
+
+.abt-comm-btn-1 {
+    background: var(--base-color);
+    color: var(--text-color);
+}
