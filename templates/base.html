@@ -36,7 +36,7 @@
                 </button>
                 {% if session.username %}
                     <span class="welcome-text">Welcome, {{ session.username }}!</span>
-                    <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+                    <a href="{{ url_for('logout') }}" class="btn-outline log-out">Logout</a>
                 {% else %}
                     <a href="{{ url_for('login') }}" class="btn-outline signin">Sign In</a>
                     <a href="{{ url_for('signup') }}" class="btn-primary joinnow">Join Now</a>
