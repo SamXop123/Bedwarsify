@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Guide Section -->
+<section class="guide-section">
+    <div class="container">
+        <div class="guide-header">
+            <span class="badge">{{ strategy.difficulty }}</span>
+            <h1>{{ strategy.title }}</h1>
+            <p>{{ strategy.description }}</p>
+            <a href="{{ url_for('home') }}#learn-strategy" class="btn-outline go-back-btn-guide read-guide-btn">
+                <i data-lucide="arrow-left"></i> Go Back
+            </a>
+        </div>
+        <div class="guide-content">
+            {{ guide_data.content | safe }}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
