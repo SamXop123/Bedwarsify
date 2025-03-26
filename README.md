@@ -1,5 +1,6 @@
 
-# Bedwarsify - Minecraft Bedwars Strategy Guide
+# Bedwarsify
+### Minecraft Bedwars Strategy Guide
 
 **Welcome to Bedwarsify**, a web application designed to help Minecraft Bedwars players improve their skills and dominate the game! Whether you're a beginner looking to learn the basics or an advanced player aiming to master pro strategies, Bedwarsify provides expert tips, video tutorials, and interactive resources to elevate your gameplay.
 
@@ -92,9 +93,8 @@ Once the application is running, you can explore the following features:
 ### Example Screenshots
 | Homepage | Strategies Section |
 |----------|--------------------|
-| ![Homepage](https://via.placeholder.com/600x400.png?text=Homepage) | ![Strategies](https://via.placeholder.com/600x400.png?text=Winning+Strategies) |
+| ![Homepage](/static/images/home-page.png) | ![Strategies](/static/images/strategy-section.png) |
 
-*(Replace the placeholder images with actual screenshots of your website before going live!)*
 
 ---
 
