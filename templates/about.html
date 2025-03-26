@@ -25,6 +25,53 @@
 </section>
 
 
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Meet the Team</span>
+            <h2>Our Creators</h2>
+            <p>Meet the passionate team behind Bedwarsify, dedicated to bringing you the best Bedwars content.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-image">
+                    <img src="{{ url_for('static', filename='images/devdpro.jpg') }}" alt="Team Member 1">
+                </div>
+                <h3>Devdpro</h3>
+                <p class="role"> Veteran Strategist</p>
+                <p>A Bedwars veteran with over 4 years of experience, Devdpro is dedicated to helping players master the game.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-image">
+                    <img src="{{ url_for('static', filename='images/boy_sunset.png') }}" alt="Team Member 2">
+                </div>
+                <h3>Sameer Prajapati</h3>
+                <p class="role">Lead Developer</p>
+                <p>Sameer is the developer behind the creation of "Bedwarsify". </p>
+            </div>
+            <div class="team-member">
+                <div class="team-image">
+                    <img src="{{ url_for('static', filename='images/mythie.png') }}" alt="Team Member 3">
+                </div>
+                <h3>Mythical</h3>
+                <p class="role">Youtuber</p>
+                <p>Mythie creates engaging video tutorials and guides to help players improve their Bedwars skills.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
+
+<section class="community-section">
+    <div class="container">
+        <h2>Join the Bedwarsify Community</h2>
+        <p>Connect with other Bedwars players, share your strategies, and stay updated with the latest tips and tricks!</p>
+        <div class="community-buttons">
+            <a href="https://hypixel.net/bed-wars/" target = "_blank" class="btn-primary abt-comm-btn abt-comm-btn-1">Community Forum</a>
+            <a href="https://www.youtube.com/@TheMythicalPro" target = "_blank" class="btn-outline abt-comm-btn">Youtube Channel</a>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
