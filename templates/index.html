@@ -22,51 +22,48 @@
         </div>
     </section>
 
-    <section class="strategies-section" id="learn-strategy">
-        <div class="container">
-            <div class="section-header">
-                <span class="badge">Featured Content</span>
-                <h2>Winning Strategies</h2>
-                <p>
-                    Learn from the best players and improve your gameplay with our curated strategies.
-                </p>
+    <!-- Strategies Section -->
+<section class="strategies-section" id="learn-strategy">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Learn & Improve</span>
+            <h2>Bedwars Strategies</h2>
+            <p>Explore strategies for all skill levels to dominate in Minecraft Bedwars.</p>
+        </div>
+        <div class="tabs">
+            <div class="tabs-list">
+                <button class="tab-trigger active" data-tab="beginner">Beginner</button>
+                <button class="tab-trigger" data-tab="intermediate">Intermediate</button>
+                <button class="tab-trigger" data-tab="advanced">Advanced</button>
             </div>
-
-            <div class="tabs">
-                <div class="tabs-list">
-                    <button data-tab="beginner" class="tab-trigger active">Beginner</button>
-                    <button data-tab="intermediate" class="tab-trigger">Intermediate</button>
-                    <button data-tab="advanced" class="tab-trigger">Advanced</button>
-                </div>
-
-                {% for level, items in strategies.items() %}
-                    <div class="tab-content {{ 'active' if level == 'beginner' else '' }}" id="{{ level }}">
-                        <div class="strategy-grid">
-                            {% for strategy in items %}
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img src="{{ url_for('static', filename='images/' + strategy.image) }}" alt="{{ strategy.title }}">
-                                        <span class="badge">{{ strategy.difficulty }}</span>
-                                    </div>
-                                    <div class="card-header">
-                                        <h3>
-                                            <i class="icon-{{ strategy.icon }}" data-lucide="{{ strategy.icon }}"></i> {{ strategy.title }}
-                                        </h3>
-                                        <p>{{ strategy.description }}</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button class="btn-outline">
-                                            Read Guide <i class="icon-arrow-right" data-lucide="arrow-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            {% endfor %}
+            {% for level, items in strategies.items() %}
+            <div class="tab-content {% if level == 'beginner' %}active{% endif %}" id="{{ level }}">
+                <div class="strategy-grid">
+                    {% for strategy in items %}
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename='images/' + strategy.image) }}" alt="{{ strategy.title }}">
+                            <span class="badge">{{ strategy.difficulty }}</span>
+                        </div>
+                        <div class="card-header">
+                            <h3>
+                                <i data-lucide="{{ strategy.icon }}"></i> {{ strategy.title }}
+                            </h3>
+                            <p>{{ strategy.description }}</p>
+                        </div>
+                        <div class="card-footer strategy-card-footer">
+                            <a href="{{ url_for('guide', strategy_id=strategy.id) }}" class="btn-outline read-guide-btn">
+                                <i data-lucide="play"></i> Read Guide
+                            </a>
                         </div>
                     </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="videos-section" id="strategy-videos">
         <div class="container">
