@@ -9,7 +9,7 @@
 <img src="./static/images/bedwarsify-logo3.png" width= "100px">
 
 
-#### Website: [Visit Bedwarsify](https://bedwarsify.example.com)
+#### Website: [Visit Bedwarsify](https://bedwarsify.vercel.app)
 
 </div>
 
@@ -189,4 +189,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Have questions or feedback? Reach out to the Bedwarsify team!
 
 - **Email**: sameerprajapati066@gmail.com
-- **Website**: [Visit Bedwarsify](https://bedwarsify.example.com)
+- **Website**: [Visit Bedwarsify](https://bedwarsify.vercel.app)
