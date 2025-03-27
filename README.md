@@ -85,6 +85,8 @@ Once the application is running, you can explore the following features:
 - **Interactive Maps (`#interactive-maps`)**: Explore a featured Bedwars map with strategic insights.
 - **Sign Up (`/signup`)**: Create an account to access personalized features.
 - **Log In (`/login`)**: Log in to your account.
+(If in case login didn't work, then try with:
+ `"testuser": {"email": "testuser@example.com", "password": "password123"}`)
 - **Log Out (`/logout`)**: Log out securely.
 - **Contact (`/contact`)**: Send a message to the Bedwarsify team.
 - **About (`/about`)**: Learn about the mission and team behind Bedwarsify.
