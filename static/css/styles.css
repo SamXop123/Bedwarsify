@@ -1228,3 +1228,18 @@ h1, h2 {
     text-align: center;
     width: 5%;
 }
+
+
+/* Logo Link */
+.logo-link {
+    text-decoration: none; 
+    color: inherit; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: -5px;
+}
+
+.logo-link:hover {
+    color: var(--primary-color); 
+}
