@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from datetime import datetime
+import os
 
 app = Flask(__name__)
-app.secret_key = "b1f3cb867a6477c36f7d0dfbbce70816" 
+app.secret_key = os.getenv("SECRET_KEY", "b1f3cb867a6477c36f7d0dfbbce70816") 
+
+# app.secret_key = "b1f3cb867a6477c36f7d0dfbbce70816" 
 
 users_db = {
     "testuser": {"email": "testuser@example.com", "password": "password123"}
