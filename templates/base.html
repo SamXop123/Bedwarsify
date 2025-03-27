@@ -17,9 +17,11 @@
     <header class="header">
         <div class="container header-content">
             <div class="logo">
-                <i class="icon-shield" data-lucide="shield"></i>
-                <span>Bedwarsify</span>
-            </div> 
+                <a href="{{ url_for('home') }}" class="logo-link">
+                    <i class="icon-shield" data-lucide="shield"></i>
+                    <span>Bedwarsify</span>
+                </a>
+            </div>
             <nav class="nav">
                 <a href="{{ url_for('home') }}#learn-strategy" class="nav-link">Strategies</a>
                 <a href="{{ url_for('home') }}#strategy-videos" class="nav-link">Video Guides</a>
